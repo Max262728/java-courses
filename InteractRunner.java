@@ -9,17 +9,48 @@ public class InteractRunner {
             String exit = "no";
             while (!exit.equals("yes")) {
                 System.out.println("Enter first arg:");
-                String first = sc.next();
+                int first = sc.nextInt();
                 System.out.println("Enter second arg:");
-                String second = sc.next();
-                calc.add(Integer.valueOf(first), Integer.valueOf(second));
-                System.out.println("Result: " + calc.getResult());
-                calc.cleanResult();
-                System.out.println("Exit : yes/no ");
-                exit = sc.next();
+                int second = sc.nextInt();
+                System.out.println("Enter action:");
+                String action = sc.next();
+                if(action.equals("plus"))
+                {
+                    calc.add(first,second);
+                    System.out.println("Result: " + calc.getResult());
+                }
+                if (action.equals("minus"))
+                {
+                    calc.minus(first,second);
+                    System.out.println("Result: " + calc.getResult());
+                }
+                if (action.equals("share"))
+                {
+                    calc.share(first,second);
+                    System.out.println("Result: " + calc.getResult());
+                }
+
+                if (action.equals("multiply"))
+                {
+                    calc.multiply(first,second);
+                    System.out.println("Result: " + calc.getResult());
+                }
+                if(action.equals("stepen"))
+                {
+                    calc.stepen(first,second);
+                    System.out.println("Result: " + calc.getResult());
+                }
+                System.out.println("Clean resutl : yes/no");
+                String clres = sc.next();
+                if(clres.equals("yes")) {
+                    calc.cleanResult();
+                    System.out.println("Exit : yes/no ");
+                    exit = sc.next();
+                }
             }
         } finally {
             sc.close();
         }
     }
+
 }
